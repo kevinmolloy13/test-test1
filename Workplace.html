@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workplace Talks | Ladies Let's Talk Collective</title>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Cormorant+Garamond:wght@400;500;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+/* ── WORKPLACE PAGE (scoped, uses your :root variables + fonts) ── */
+
+/* Hero background */
+.wp-hero-bg{
+  background:linear-gradient(135deg,#cdb8c0 0%,#dfc8d0 50%,#e6d2d8 100%);
+}
+.wp-hero .eyebrow{
+  font-size:12px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--pink-dark);font-weight:700;margin-bottom:14px;
+}
+
+/* Big centered feature image */
+.wp-feature-img{
+  padding:64px 40px;
+  background:linear-gradient(160deg,#f5eaee 0%,#ede0e6 100%);
+  text-align:center;
+}
+.wp-feature-img img{
+  width:100%;
+  max-width:900px;
+  border-radius:4px;
+  box-shadow:0 20px 60px rgba(100,60,80,0.2);
+  display:block;
+  margin:0 auto;
+}
+
+/* Topic / format card grids reuse your .pro-card look */
+.wp-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
+  max-width:1040px;margin:0 auto;text-align:left;
+}
+.wp-card{
+  background:#fff;border:1px solid #e0ccd4;border-radius:3px;
+  padding:28px 26px;transition:transform 0.2s,box-shadow 0.2s;
+}
+.wp-card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(160,100,120,0.12);}
+.wp-card .wp-icon{
+  width:46px;height:46px;border-radius:50%;
+  background:var(--pink-light);display:flex;align-items:center;justify-content:center;
+  font-size:20px;color:var(--pink-dark);margin-bottom:16px;
+}
+.wp-card h3{
+  font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;
+  color:#2a1e22;margin-bottom:10px;
+}
+.wp-card p{font-size:14px;color:#5a4548;line-height:1.7;}
+
+/* Who it's for — simple pill row */
+.wp-audience{
+  display:flex;flex-wrap:wrap;gap:12px;justify-content:center;
+  max-width:760px;margin:0 auto;
+}
+.wp-audience .pill{
+  background:#fff;border:1px solid #e0ccd4;border-radius:24px;
+  padding:11px 22px;font-size:14px;color:#5a4548;
+}
+
+/* CTA band reuses your dark-section feel */
+.wp-cta-sec{
+  padding:80px 96px;text-align:center;position:relative;overflow:hidden;
+  background:linear-gradient(160deg,#2a1e22 0%,#3d2a30 100%);
+}
+.wp-cta-sec::after{
+  content:'\2661';position:absolute;right:-10px;bottom:-60px;
+  font-family:'Cormorant Garamond',serif;font-size:220px;
+  color:rgba(192,132,150,0.06);line-height:1;pointer-events:none;
+}
+.wp-cta-box{
+  background:rgba(192,132,150,0.12);border:1px solid rgba(192,132,150,0.25);
+  border-radius:4px;padding:44px 48px;max-width:620px;margin:0 auto;
+  position:relative;z-index:2;
+}
+.wp-cta-box h2{font-family:'Cormorant Garamond',serif;font-size:34px;color:#f0e4e8;margin-bottom:14px;line-height:1.2;}
+.wp-cta-box h2 em{font-family:'Dancing Script',cursive;font-size:40px;font-style:normal;color:#e0b8c8;}
+.wp-cta-box p{color:rgba(240,228,232,0.75);font-size:15px;line-height:1.7;margin-bottom:28px;}
+
+@media(max-width:900px){
+  .wp-grid{grid-template-columns:1fr;}
+  .wp-cta-sec{padding:56px 28px;}
+  .wp-cta-box{padding:34px 26px;}
+  .wp-feature-img{padding:36px 20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ── MOBILE NAV ── -->
+<div class="mobile-nav" id="mobileNav">
+    <div class="mobile-header">
+        <img class="logo-img" src="images/Logo.jpeg" alt="Logo">
+        <button class="mobile-close" onclick="closeMobile()">
+		 <br><br><br>✕</button>
+    </div>
+    <a href="index.html">Home</a>
+    <a href="events.html">Upcoming Events</a>
+    <a href="journal.html">Well Being Journal</a>
+    <a href="symptom.html">Symptom Checker</a>
+    <a href="workplace.html">Workplace Talks</a>
+    <a href="professionals.html">Professionals</a>
+    <a href="contact.html">Contact</a>
+</div>
+
+<nav>
+  <div class="logo-wrap">
+    <img class="logo-img" src="images/Logo.jpeg" alt="Ladies Let's Talk Collective logo">
+  </div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html">Upcoming Events</a></li>
+      <li class="has-dropdown">
+        <a href="#" onclick="return false;">Services <span class="caret">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="journal.html">Well being Journal</a></li>
+          <li><a href="symptom.html">Symptom Checker</a></li>
+          <li><a href="workplace.html">Workplace Talks</a></li>
+        </ul>
+      </li>
+      <li><a href="professionals.html">Professionals</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" onclick="openMobile()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg wp-hero-bg"></div>
+  <div class="hero-content">
+    <div class="eyebrow">Ladies Let's Talk Workplace</div>
+    <h1>Talking openly about menopause &amp; women's health at work</h1>
+    <p>Jen brings honest, practical talks to workplaces — helping teams understand menopause, perimenopause, and women's health, and creating cultures where no one has to struggle in silence.</p>
+    <div class="btn-row">
+      <a href="contact.html" class="btn-pink">Book a Talk</a>
+      <a href="#topics" class="btn-outline">See What's Covered</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── ABOUT THE TALKS ── -->
+<section class="about">
+
+  <div class="about-text">
+    <h2>More than a <em>talk</em></h2>
+    <p>Menopause and women's health are still too often left out of the conversation at work — even though they affect a large part of the workforce. The result is people pushing through symptoms alone, and managers unsure how to help.</p>
+    <p>Jen's sessions change that. Drawing on lived experience and a warm, no-nonsense style, she creates a space where colleagues can ask the questions they've never felt able to ask, and where employers walk away knowing exactly how to offer support.</p>
+    <p>Every session is tailored to your organisation — whether that's a room of employees, a leadership team, or your HR and wellbeing leads.</p>
+  </div>
+</section>
+<section class="wp-feature-img">
+  <img src="images/LLTWORK.jpg" alt="Jen speaking on stage at a Ladies Let's Talk live event">
+</section>
+
+<!-- ── WHAT'S COVERED ── -->
+<section id="topics" class="pros">
+  <div class="section-label">What the talks <em>cover</em></div>
+  <p class="section-sub">Sessions are shaped around your team, but commonly include:</p>
+  <div class="wp-grid">
+    <div class="wp-card">
+      <div class="wp-icon">♡</div>
+      <h3>Understanding menopause</h3>
+      <p>What perimenopause and menopause actually are, the range of symptoms, and why they show up differently for everyone.</p>
+    </div>
+    <div class="wp-card">
+      <div class="wp-icon">☼</div>
+      <h3>Symptoms at work</h3>
+      <p>How symptoms can affect focus, confidence, sleep and energy — and simple, practical ways to manage them through the working day.</p>
+    </div>
+    <div class="wp-card">
+      <div class="wp-icon">⚖</div>
+      <h3>Support &amp; the workplace</h3>
+      <p>What good support looks like, reasonable adjustments, and how policy and culture can make a real difference.</p>
+    </div>
+    <div class="wp-card">
+      <div class="wp-icon">☷</div>
+      <h3>Guidance for managers</h3>
+      <p>How to start a supportive conversation, what to say (and what to avoid), and how to lead with empathy.</p>
+    </div>
+    <div class="wp-card">
+      <div class="wp-icon">✿</div>
+      <h3>Wider women's health</h3>
+      <p>Connecting menopause to the broader picture of women's wellbeing across different life stages.</p>
+    </div>
+    <div class="wp-card">
+      <div class="wp-icon">✎</div>
+      <h3>Open Q&amp;A</h3>
+      <p>A safe, judgement-free space for the questions people have always wanted to ask but never had the chance to.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FORMATS ── -->
+<section class="convos">
+  <div class="section-label">Ways to <em>work together</em></div>
+  <p class="section-sub">Choose the format that fits your team and your time.</p>
+  <div class="wp-grid">
+    <div class="wp-card">
+      <div class="wp-icon">▣</div>
+      <h3>Lunch &amp; Learn</h3>
+      <p>A relaxed 45–60 minute session, perfect for introducing the topic to a wider group over a break.</p>
+    </div>
+    <div class="wp-card">
+      <div class="wp-icon">◉</div>
+      <h3>Keynote Talk</h3>
+      <p>An engaging headline session for company events, awareness days, or wellbeing weeks.</p>
+    </div>
+    <div class="wp-card">
+      <div class="wp-icon">⬡</div>
+      <h3>Manager Workshop</h3>
+      <p>A focused, interactive session equipping leaders and HR to support their teams with confidence.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHO IT'S FOR ── -->
+<section class="pros">
+  <div class="section-label">Who it's <em>for</em></div>
+  <p class="section-sub">These sessions are designed for any organisation that wants a healthier, more open culture.</p>
+  <div class="wp-audience">
+    <span class="pill">Employers &amp; business owners</span>
+    <span class="pill">HR &amp; People teams</span>
+    <span class="pill">Wellbeing &amp; D&amp;I leads</span>
+    <span class="pill">Managers &amp; team leaders</span>
+    <span class="pill">Employee networks</span>
+    <span class="pill">Whole-team awareness days</span>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="wp-cta-sec">
+  <div class="wp-cta-box">
+    <h2>Bring Ladies Let's Talk to your <em>workplace</em></h2>
+    <p>Tell us a little about your team and what you're hoping for, and Jen will be in touch to plan a session that fits.</p>
+    <a href="contact.html" class="btn-event">Get in Touch</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">
+    <img src="images/Logo.jpeg" alt="Ladies Let's Talk Collective logo">
+  </div>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="events.html">Upcoming Events</a></li>
+    <li><a href="journal.html">Well Being Journal</a></li>
+    <li><a href="workplace.html">Workplace</a></li>
+    <li><a href="symptom.html">Symptom Checker</a></li>
+    <li><a href="professionals.html">Professionals</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-social">
+    <span title="Instagram">◎</span>
+    <span title="Facebook">f</span>
+    <span title="TikTok">♪</span>
+  </div>
+  <div class="footer-copy">© 2026 Ladies Let's Talk Collective</div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
