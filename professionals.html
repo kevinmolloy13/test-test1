@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professionals — Ladies Let's Talk Collective</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Dancing+Script:wght@600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Cormorant+Garamond:wght@400;500;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    /* ══════════════════════════════════════
+       VIDEO / MEET THE PROFESSIONALS SECTION
+    ══════════════════════════════════════ */
+    .meet-pros {
+      background: linear-gradient(160deg, #2a1e22 0%, #3d2a30 100%);
+      padding: 80px 96px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* subtle texture overlay matching the events section */
+    .meet-pros::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c08496' fill-opacity='0.05'%3E%3Cpath d='M30 0 C28 4 24 6 20 4 C14 2 14 10 20 14 L30 22 L40 14 C46 10 46 2 40 4 C36 6 32 4 30 0Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .meet-pros .section-label {
+      color: #f0e4e8;
+      position: relative;
+      z-index: 2;
+    }
+
+    .meet-pros .section-label em {
+      color: #e0b8c8;
+    }
+
+    .meet-pros .section-sub {
+      color: rgba(240, 228, 232, 0.75);
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ── CAROUSEL WRAPPER ── */
+    .carousel-outer {
+      position: relative;
+      max-width: 1100px;
+      margin: 44px auto 0;
+      z-index: 2;
+    }
+
+    .carousel-viewport {
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 20px;
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ── VIDEO CARD — inherits .video-card styling from style.css but extended ── */
+    .vc {
+      flex: 0 0 calc((100% - 40px) / 3);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(192, 132, 150, 0.22);
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+    }
+
+    .vc:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+      border-color: rgba(192, 132, 150, 0.6);
+    }
+
+    .vc-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      position: relative;
+      overflow: hidden;
+      background: #1a1218;
+    }
+
+    .vc-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s;
+    }
+
+    .vc:hover .vc-thumb img {
+      transform: scale(1.04);
+    }
+
+    .vc-thumb-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(30, 10, 20, 0.28);
+      transition: background 0.22s;
+    }
+
+    .vc:hover .vc-thumb-overlay {
+      background: rgba(30, 10, 20, 0.12);
+    }
+
+    .vc-play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 56px;
+      height: 56px;
+      background: rgba(192, 132, 150, 0.88);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      transition: background 0.22s, transform 0.22s;
+      z-index: 2;
+    }
+
+    .vc:hover .vc-play {
+      background: #c08496;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .vc-play-tri {
+      width: 0;
+      height: 0;
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      border-left: 16px solid #fff;
+      margin-left: 4px;
+    }
+
+    .vc-info {
+      padding: 16px 18px 20px;
+      text-align: left;
+    }
+
+    .vc-cat {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      color: #c08496;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .vc-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: #f0e4e8;
+      line-height: 1.35;
+    }
+
+    /* ── ARROW BUTTONS ── */
+    .carousel-arrow {
+      position: absolute;
+      top: 40%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      background: rgba(42, 30, 34, 0.85);
+      border: 1px solid rgba(192, 132, 150, 0.35);
+      border-radius: 50%;
+      color: #e0b8c8;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: background 0.2s, border-color 0.2s;
+      backdrop-filter: blur(4px);
+    }
+
+    .carousel-arrow:hover {
+      background: rgba(192, 132, 150, 0.2);
+      border-color: #c08496;
+    }
+
+    .carousel-arrow:disabled {
+      opacity: 0.25;
+      cursor: default;
+    }
+
+    .carousel-arrow.prev { left: -24px; }
+    .carousel-arrow.next { right: -24px; }
+
+    /* ── DOTS ── */
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 28px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cdot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(192, 132, 150, 0.3);
+      border: none;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.25s;
+      padding: 0;
+    }
+
+    .cdot.active {
+      background: #c08496;
+      transform: scale(1.35);
+    }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lb-inner {
+      position: relative;
+      width: 100%;
+      max-width: 780px;
+      background: #2a1e22;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6);
+      text-align: center;
+      padding: 40px 36px 36px;
+    }
+
+    .lb-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 32px;
+      height: 32px;
+      background: rgba(192,132,150,0.25);
+      border: 1px solid rgba(192,132,150,0.4);
+      border-radius: 50%;
+      color: #e0b8c8;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: background 0.2s;
+    }
+
+    .lb-close:hover { background: rgba(192,132,150,0.45); }
+
+    /* embedded player wrapper */
+    .lb-video-wrap {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      position: relative;
+      background: #000;
+    }
+
+    .lb-video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .lb-cat {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      color: #c08496;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .lb-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: #f0e4e8;
+      font-weight: 600;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .meet-pros { padding: 56px 28px; }
+      .vc { flex: 0 0 78vw; }
+      .carousel-arrow.prev { left: 2px; }
+      .carousel-arrow.next { right: 2px; }
+      .lb-inner { padding: 28px 18px 24px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════
+       MOBILE NAV
+  ══════════════════════════════════════ -->
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-header">
+      <img class="logo-img" src="images/Logo.jpeg" alt="Logo">
+      <button class="mobile-close" onclick="closeMobile()">✕</button>
+    </div>
+    <a href="index.html">Home</a>
+    <a href="events.html">Upcoming Events</a>
+    <a href="journal.html">Well Being Journal</a>
+    <a href="symptom.html">Symptom Checker</a>
+    <a href="professionals.html">Professionals</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       DESKTOP NAV
+  ══════════════════════════════════════ -->
+ <nav>
+  <div class="logo-wrap">
+    <img class="logo-img" src="images/Logo.jpeg" alt="Ladies Let's Talk Collective logo">
+  </div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html">Upcoming Events</a></li>
+      <li class="has-dropdown">
+        <a href="#" onclick="return false;">Services <span class="caret">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="journal.html">Well being Journal</a></li>
+          <li><a href="symptom.html">Symptom Checker</a></li>
+          <li><a href="workplace.html">Workplace Talks</a></li>
+        </ul>
+      </li>
+      <li><a href="professionals.html">Professionals</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" onclick="openMobile()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+  <div id="nav-placeholder"></div>
+
+
+  <!-- ══════════════════════════════════════
+       MEET THE PROFESSIONALS — VIDEO CAROUSEL
+  ══════════════════════════════════════ -->
+  <section class="meet-pros">
+    <h2 class="section-label">Meet the <em>Professionals</em></h2>
+    <p class="section-sub">Hear directly from the experts I trust — video introductions from the women making a real difference.</p>
+
+    <div class="carousel-outer">
+      <button class="carousel-arrow prev" id="prevBtn" onclick="slide(-1)" disabled aria-label="Previous">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M9 12L4 7l5-5" stroke="#e0b8c8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="carouselTrack"></div>
+      </div>
+
+      <button class="carousel-arrow next" id="nextBtn" onclick="slide(1)" aria-label="Next">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M5 2l5 5-5 5" stroke="#e0b8c8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="carousel-dots" id="dotsContainer"></div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       TRUSTED PROFESSIONALS
+  ══════════════════════════════════════ -->
+  <section class="pros" id="professionals">
+    <h2 class="section-label">Trusted <em>Professionals</em></h2>
+    <p class="section-sub">People I personally recommend — experts and businesses who are making a real difference for women navigating this stage of life.</p>
+    <p class="pro-note">These are people I trust and want to share with you. Always consult your own healthcare provider for personal medical advice.</p>
+
+    <div class="pro-grid">
+
+      <div class="pro-card">
+        <div class="pro-cat">Pharmacy &amp; HRT</div>
+        <h3>Victoria Jones — The Menopause Pharmacist</h3>
+        <p>I'm delighted to have Victoria as part of this trusted community. Known as The Menopause Pharmacist, Victoria is passionate about supporting women through perimenopause and menopause with practical, evidence-based advice and genuine care. Through her work at Bonnybrook Pharmacy, she helps women better understand their symptoms, hormone health, and treatment options, empowering them to make informed decisions with confidence.</p>
+        <div class="pro-links">
+          <a href="https://bonnybrookpharmacy.ie/" target="_blank" class="pro-link">Website</a>
+          <a href="https://www.instagram.com/the_menopause_pharmacist?igsh=dnV1dDVmN3p0cDdp" target="_blank" class="pro-link">Instagram</a>
+        </div>
+      </div>
+
+      <div class="pro-card">
+        <div class="pro-cat">Fertility &amp; Hormonal Health</div>
+        <h3>Dr. Codruța — Saol Nua Clinic</h3>
+        <p>I'm delighted to have Dr. Codruța as part of this trusted community. Dr. Codruța is a Dublin-based Restorative Reproductive Medicine doctor and founder of Saol Nua Clinic, with over 17 years of clinical experience helping individuals and couples navigate fertility and hormonal health challenges. Her expertise includes fertility optimisation, recurrent miscarriage support, PCOS, endometriosis, IVF support, and integrative reproductive medicine.</p>
+        <div class="pro-links">
+          <a href="https://saolnuaclinic.com/" target="_blank" class="pro-link">Website</a>
+        </div>
+      </div>
+
+      <div class="pro-card">
+        <div class="pro-cat">Laser Health Clinic</div>
+        <h3>Dr. Codruța Pandalache, Niamh Burke &amp; Maeve Sherlock — Laser Health</h3>
+        <p>Three women, drawn together by their shared experience and journey. Through expertise in Restorative Reproductive Medicine, Nutritional Therapy and Biokinesiology, they support women through fertility struggles, hormone imbalance and the transition into perimenopause. Their approach is deeply personal, compassionate and rooted in looking at the body as a whole, using advanced infralaser therapy alongside nutrition, medicine and holistic support.</p>
+        <div class="pro-links">
+          <a href="https://laserhealth.ie/" target="_blank" class="pro-link">Website</a>
+          <a href="mailto:info@laserhealth.ie" class="pro-link">Email</a>
+        </div>
+      </div>
+
+      <div class="pro-card">
+        <div class="pro-cat">Supplements</div>
+        <h3>Key for Her</h3>
+        <p>I'm delighted to recommend Key for Her, a brand dedicated to supporting women through perimenopause and menopause. Their carefully formulated supplements are designed to promote hormone health, wellbeing, and everyday vitality, helping women feel supported and empowered throughout their menopause journey.</p>
+        <div class="pro-links">
+          <a href="https://keyforher.com/collections/key-products" target="_blank" class="pro-link">Shop Now</a>
+        </div>
+      </div>
+
+      <div class="pro-card">
+        <div class="pro-cat">Menopause Gifts</div>
+        <h3>Jane &amp; Laura — Chill Jill</h3>
+        <p>I'm delighted to recommend Jane and Laura from Chill Jill. As qualified nurses with both professional expertise and lived experience of perimenopause and menopause, they provide practical, trusted support to women navigating this stage of life. Through their menopause support packs, resources, and guidance, they help women feel informed, empowered, and better prepared for conversations with their healthcare team.</p>
+        <div class="pro-links">
+          <a href="https://chilljill.ie/" target="_blank" class="pro-link">Website</a>
+        </div>
+      </div>
+
+      <div class="pro-card">
+        <div class="pro-cat">Hormone Health Pharmacy</div>
+        <h3>Nicola Ryan — Hormone Health Clinic</h3>
+        <p>I'm delighted to have Nicola as part of this trusted community. As a BMS-accredited healthcare professional and experienced pharmacist, she provides expert, evidence-based support for women experiencing hormone-related challenges. Nicola's warm and compassionate approach helps women feel heard, supported, and empowered throughout their health journey.</p>
+        <div class="pro-links">
+          <a href="https://www.instagram.com/nicola_menopause_pharmacist?igsh=cW54YzhycHNyands" target="_blank" class="pro-link">Instagram</a>
+        </div>
+      </div>
+
+      <div class="pro-card">
+        <div class="pro-cat">Trichology / Hair Loss</div>
+        <h3>Pamela Curran — PS Trichology Clinic</h3>
+        <p>I'm delighted to have Pamela as part of this trusted community. As a qualified trichologist and phlebotomist, she specialises in supporting women with hair loss, hair thinning, and scalp health concerns. Pamela's expertise, compassion, and personalised approach help women better understand their hair health and regain confidence every step of the way.</p>
+        <div class="pro-links">
+          <a href="https://renaissancehairmedispa.ie/trichology/" target="_blank" class="pro-link">Website</a>
+        </div>
+      </div>
+
+      <div class="pro-card">
+        <div class="pro-cat">Wellness Therapy</div>
+        <h3>Sarah Breslin — Sarah Breslin Wellness</h3>
+        <p>I'm delighted to have Sarah as part of this trusted community. Based in Maynooth, Co. Kildare, Sarah takes a holistic approach to wellbeing, helping women feel healthier, more energised, and confident in themselves. Through treatments including lymphatic drainage massage, colon hydrotherapy, skin tightening and vaginal rejuvenation, she provides personalised support designed to promote overall wellness.</p>
+        <div class="pro-links">
+          <a href="https://sarahbreslinwellness.com/" target="_blank" class="pro-link">Website</a>
+        </div>
+      </div>
+
+      <div class="pro-card">
+        <div class="pro-cat">Personal Styling</div>
+        <h3>Nicola — Envious Styling</h3>
+        <p>I'm delighted to have Nicola as part of this trusted community. Through Envious Styling, she helps women build confidence through personal style, offering practical advice and tailored support that helps them look and feel their best. Nicola's warm, encouraging approach makes every woman feel comfortable, confident, and empowered.</p>
+        <div class="pro-links">
+          <a href="https://enviousstyling.com/" target="_blank" class="pro-link">Website</a>
+        </div>
+      </div>
+
+      <div class="pro-card">
+        <div class="pro-cat">Body Image &amp; Emotional Eating</div>
+        <h3>Aoife O'Brien — AOB Coaching</h3>
+        <p>I'm delighted to have Aoife as part of this trusted community. Through AOB Coaching, she helps women improve their relationship with food, body image, and wellbeing in a supportive and compassionate way. Aoife's warmth, expertise, and genuine passion for empowering women make her a trusted source of guidance and support.</p>
+        <div class="pro-links">
+          <a href="https://www.instagram.com/aob.coaching?igsh=MXVxamMyZWJlam1zZA==" target="_blank" class="pro-link">Instagram</a>
+        </div>
+      </div>
+
+      <div class="pro-card">
+        <div class="pro-cat">Psychotherapy &amp; Wellness</div>
+        <h3>Danika — MindWave Psychotherapy</h3>
+        <p>I'm delighted to have Danika as part of this trusted community. Based in Cork, she provides compassionate psychotherapy and emotional support to help women navigate life's challenges with greater confidence and resilience. Her warm, understanding approach creates a safe space where women feel heard, supported, and empowered.</p>
+        <div class="pro-links">
+          <a href="https://mindwavepsychotherapy.com/about/" target="_blank" class="pro-link">Website</a>
+          <a href="https://www.instagram.com/mindwavepsychotherapy?igsh=MWg2NTFudGdpamloZw==" target="_blank" class="pro-link">Instagram</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="charity-note">
+      <p>&#10084;&#65039; I will be donating <strong>&#8364;1 per journal transaction</strong> to Mental Health Ireland. If you need to reach out and talk to someone confidentially, please visit <a href="https://www.mentalhealthireland.ie/" target="_blank">mentalhealthireland.ie</a></p>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       REVIEWS
+  ══════════════════════════════════════ -->
+  <section class="reviews" id="reviews">
+    <h2 class="section-label">What Women Are <em>Saying</em></h2>
+    <p class="section-sub">Real words from real women on the perimenopause and menopause journey.</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-q">&#8220;</div>
+        <p class="review-text">Finally a space where I don't feel alone. The conversations Jennifer hosts are so honest and informative. I've learned more here than anywhere else.</p>
+        <div class="review-name">Sarah M.</div>
+        <div class="review-detail">Dublin &mdash; Community Member</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-q">&#8220;</div>
+        <p class="review-text">The symptom checker was the first thing that made me feel like what I was experiencing had a name. I brought it to my GP and it changed everything.</p>
+        <div class="review-name">Karen B.</div>
+        <div class="review-detail">Cork &mdash; Community Member</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-q">&#8220;</div>
+        <p class="review-text">Jennifer's warmth and passion for helping women shines through everything she does. This community is a gift.</p>
+        <div class="review-name">Emma L.</div>
+        <div class="review-detail">Galway &mdash; Community Member</div>
+      </div>
+    </div>
+    <p class="reviews-cta">Have something to share? <a href="contact.html" style="color:var(--pink);text-decoration:none;font-weight:700;">Get in touch</a> — we'd love to hear from you.</p>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       LIGHTBOX (now plays video embedded, in-page)
+  ══════════════════════════════════════ -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <div class="lb-inner" onclick="event.stopPropagation()">
+      <button class="lb-close" onclick="closeLightboxDirect()" aria-label="Close">✕</button>
+      <div class="lb-video-wrap">
+        <iframe id="lbFrame" width="560" height="315" src="" title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+      </div>
+      <div class="lb-cat">Video Introduction</div>
+      <div class="lb-name" id="lbName"></div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer>
+    <div class="footer-logo">
+      <img src="images/Logo.jpeg" alt="Ladies Let's Talk Collective">
+    </div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html">Upcoming Events</a></li>
+      <li><a href="journal.html">Well Being Journal</a></li>
+      <li><a href="symptom.html">Symptom Checker</a></li>
+      <li><a href="professionals.html">Professionals</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="footer-copy">&copy; 2026 Ladies Let's Talk Collective</div>
+  </footer>
+
+
+  <script src="js/script.js"></script>
+
+  <script>
+    /* ════════════════════════════════════════════
+       YOUR VIDEOS — add YouTube URLs + names here.
+       The carousel builds itself automatically.
+    ════════════════════════════════════════════ */
+    const videos = [
+      { url: "https://www.youtube.com/watch?v=WClIZwgzFWw", name: "Victoria Jones — The Menopause Pharmacist" },
+      { url: "https://www.youtube.com/watch?v=REPLACE_ME", name: "Dr. Codruța — Saol Nua Clinic" },
+      { url: "https://www.youtube.com/watch?v=REPLACE_ME", name: "Nicola Ryan — Hormone Health Clinic" },
+      { url: "https://www.youtube.com/watch?v=REPLACE_ME", name: "Pamela Curran — PS Trichology Clinic" },
+      { url: "https://www.youtube.com/watch?v=REPLACE_ME", name: "Sarah Breslin — Sarah Breslin Wellness" },
+      // Add more: { url: "https://www.youtube.com/watch?v=XXXXX", name: "Name Here" },
+    ];
+    /* ════════════════════════════════════════════ */
+
+    const VISIBLE = 3;
+    let current = 0;
+
+    function ytId(url) {
+      const m = url.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/)|youtu\.be\/)([^&\n?#]+)/);
+      return m ? m[1] : null;
+    }
+
+    const vids = videos.map(v => ({ id: ytId(v.url), name: v.name })).filter(v => v.id);
+
+    function render() {
+      const track = document.getElementById('carouselTrack');
+      const dots  = document.getElementById('dotsContainer');
+
+      track.innerHTML = vids.map((v, i) => `
+        <div class="vc" onclick="openLightbox(${i})" role="button" tabindex="0" aria-label="Play video: ${v.name}">
+          <div class="vc-thumb">
+            <img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg" alt="${v.name}" loading="lazy">
+            <div class="vc-thumb-overlay"></div>
+            <div class="vc-play"><div class="vc-play-tri"></div></div>
+          </div>
+          <div class="vc-info">
+            <div class="vc-cat">Video Introduction</div>
+            <div class="vc-name">${v.name}</div>
+          </div>
+        </div>
+      `).join('');
+
+      const numDots = Math.max(1, vids.length - VISIBLE + 1);
+      dots.innerHTML = Array.from({ length: numDots }, (_, i) =>
+        `<button class="cdot ${i === current ? 'active' : ''}" onclick="goTo(${i})" aria-label="Slide ${i + 1}"></button>`
+      ).join('');
+
+      updateTrack();
+      document.getElementById('prevBtn').disabled = current === 0;
+      document.getElementById('nextBtn').disabled = current >= vids.length - VISIBLE;
+    }
+
+    function updateTrack() {
+      const track = document.getElementById('carouselTrack');
+      const card  = track.querySelector('.vc');
+      if (!card) return;
+      const gap = 20;
+      track.style.transform = `translateX(-${current * (card.offsetWidth + gap)}px)`;
+    }
+
+    function slide(dir) {
+      current = Math.min(Math.max(0, current + dir), Math.max(0, vids.length - VISIBLE));
+      render();
+    }
+
+    function goTo(i) { current = i; render(); }
+
+    /* Embedded playback: builds a YouTube "embed" URL (not "watch") and
+       drops it into an iframe inside the lightbox, so the video plays
+       right on this page instead of sending people to youtube.com. */
+    function openLightbox(i) {
+      const v = vids[i];
+      document.getElementById('lbFrame').src = `https://www.youtube.com/embed/${v.id}?autoplay=1&rel=0`;
+      document.getElementById('lbName').textContent = v.name;
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightboxDirect() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.getElementById('lbFrame').src = ''; // stops playback
+      document.body.style.overflow = '';
+    }
+
+    function closeLightbox(e) {
+      if (e.target === document.getElementById('lightbox')) closeLightboxDirect();
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightboxDirect(); });
+    window.addEventListener('resize', updateTrack);
+
+    render();
+  </script>
+
+</body>
+</html>

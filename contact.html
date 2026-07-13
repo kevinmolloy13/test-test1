@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Ladies Let's Talk Collective</title>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Cormorant+Garamond:wght@400;500;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+/* ── CONTACT PAGE (scoped, uses your :root variables + fonts) ── */
+
+/* Page intro header */
+.contact-hero{
+  background:linear-gradient(160deg,#2a1e22 0%,#3d2a30 100%);
+  text-align:center;padding:84px 40px 76px;position:relative;overflow:hidden;
+}
+.contact-hero::after{
+  content:'♡';position:absolute;right:-10px;bottom:-50px;
+  font-family:'Cormorant Garamond',serif;font-size:220px;
+  color:rgba(192,132,150,0.07);line-height:1;pointer-events:none;
+}
+.contact-hero .eyebrow{
+  font-size:12px;letter-spacing:3px;text-transform:uppercase;
+  color:#c08496;font-weight:700;margin-bottom:14px;
+}
+.contact-hero h1{
+  font-family:'Cormorant Garamond',serif;font-size:54px;font-weight:600;
+  color:#f0e4e8;line-height:1.12;margin-bottom:18px;
+}
+.contact-hero h1 em{font-family:'Dancing Script',cursive;font-size:60px;font-style:normal;color:#e0b8c8;}
+.contact-hero p{
+  font-size:16px;color:rgba(240,228,232,0.78);line-height:1.75;
+  max-width:520px;margin:0 auto;position:relative;z-index:2;
+}
+
+/* Main contact area */
+.contact-sec{
+  padding:72px 40px 90px;
+  background:linear-gradient(135deg,#ead8de 0%,#dfc8d0 50%,#e6d2d8 100%);
+}
+.contact-shell{
+  max-width:1040px;margin:24px auto 0;position:relative;z-index:5;
+  display:grid;grid-template-columns:0.85fr 1.15fr;
+  border-radius:8px;overflow:hidden;
+  box-shadow:0 30px 70px rgba(80,45,65,0.22);
+}
+
+/* Left: dark info panel */
+.contact-info{
+  background:linear-gradient(160deg,#3a2830 0%,#2a1e22 100%);
+  padding:48px 40px;color:#f0e4e8;position:relative;overflow:hidden;
+}
+.contact-info::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c08496' fill-opacity='0.07'%3E%3Cpath d='M30 0 C28 4 24 6 20 4 C14 2 14 10 20 14 L30 22 L40 14 C46 10 46 2 40 4 C36 6 32 4 30 0Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.contact-info-inner{position:relative;z-index:2;}
+.contact-info h2{
+  font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;
+  margin-bottom:8px;line-height:1.2;
+}
+.contact-info h2 em{font-family:'Dancing Script',cursive;font-size:36px;font-style:normal;color:#e0b8c8;}
+.contact-info .lead{font-size:14px;line-height:1.7;color:rgba(240,228,232,0.7);margin-bottom:34px;}
+.ci-row{display:flex;gap:14px;align-items:flex-start;margin-bottom:24px;}
+.ci-icon{
+  width:38px;height:38px;flex-shrink:0;border-radius:50%;
+  background:rgba(192,132,150,0.18);border:1px solid rgba(192,132,150,0.35);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;color:#e0b8c8;
+}
+.ci-row .ci-label{font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(224,184,200,0.7);margin-bottom:3px;}
+.ci-row .ci-value{font-size:14.5px;color:#f0e4e8;line-height:1.5;}
+.ci-row a{color:#f0e4e8;text-decoration:none;transition:color 0.2s;}
+.ci-row a:hover{color:#e0b8c8;}
+.ci-social{display:flex;gap:12px;margin-top:34px;padding-top:26px;border-top:1px solid rgba(192,132,150,0.2);}
+.ci-social span{
+  width:40px;height:40px;border-radius:50%;
+  border:1px solid rgba(192,132,150,0.35);
+  display:flex;align-items:center;justify-content:center;
+  font-size:17px;color:#e0b8c8;cursor:pointer;
+  transition:background 0.25s,transform 0.25s;
+}
+.ci-social span:hover{background:rgba(192,132,150,0.2);transform:translateY(-3px);}
+
+/* Right: form card */
+.contact-form-wrap{background:#fff;padding:48px 44px;}
+.contact-form-wrap .form-title{
+  font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;
+  color:#2a1e22;margin-bottom:6px;
+}
+.contact-form-wrap .form-note{font-size:13.5px;color:#8a7078;margin-bottom:30px;}
+.contact-form .field{margin-bottom:22px;}
+.contact-form label{
+  display:block;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;
+  color:#5a4548;font-weight:700;margin-bottom:7px;
+}
+.contact-form input,
+.contact-form textarea{
+  width:100%;padding:13px 16px;border:1.5px solid #e2d2da;border-radius:4px;
+  font-size:14.5px;font-family:'Lato',sans-serif;color:var(--text);
+  background:#faf5f7;outline:none;transition:border-color 0.2s,background 0.2s,box-shadow 0.2s;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{color:#bba8b2;}
+.contact-form input:focus,
+.contact-form textarea:focus{
+  border-color:var(--pink);background:#fff;
+  box-shadow:0 0 0 3px rgba(192,132,150,0.12);
+}
+.contact-form textarea{resize:vertical;min-height:140px;}
+.contact-form .honeypot{display:none;}
+.contact-form .btn-pink{
+  width:100%;padding:15px;font-size:14px;letter-spacing:1px;font-weight:700;
+  border-radius:4px;
+}
+.form-status{margin-top:18px;font-size:14px;text-align:center;min-height:20px;}
+.form-status.success{color:#2e7d4f;}
+.form-status.error{color:#b03a3a;}
+.form-status.sending{color:#8a7078;}
+
+@media(max-width:900px){
+  .contact-hero{padding:64px 28px 96px;}
+  .contact-hero h1{font-size:38px;}
+  .contact-hero h1 em{font-size:44px;}
+  .contact-sec{padding:36px 20px 64px;}
+  .contact-shell{grid-template-columns:1fr;margin-top:0;}
+  .contact-info{padding:38px 28px;}
+  .contact-form-wrap{padding:38px 26px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ── MOBILE NAV ── -->
+<div class="mobile-nav" id="mobileNav">
+    <button class="mobile-close" onclick="closeMobile()">✕</button>
+    <a href="index.html">Home</a>
+    <a href="events.html">Upcoming Events</a>
+    <a href="journal.html">Well Being Journal</a>
+    <a href="symptom.html">Symptom Checker</a>
+    <a href="professionals.html">Professionals</a>
+    <a href="contact.html">Contact</a>
+</div>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="logo-wrap">
+    <img class="logo-img" src="images/Logo.jpeg" alt="Ladies Let's Talk Collective logo">
+  </div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html">Upcoming Events</a></li>
+      <li class="has-dropdown">
+        <a href="#" onclick="return false;">Services <span class="caret">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="journal.html">Well being Journal</a></li>
+          <li><a href="symptom.html">Symptom Checker</a></li>
+          <li><a href="workplace.html">Workplace Talks</a></li>
+        </ul>
+      </li>
+      <li><a href="professionals.html">Professionals</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" onclick="openMobile()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── CONTACT HERO ── -->
+<section class="contact-hero">
+  <div class="eyebrow">We'd love to hear from you</div>
+  <h1>Let's <em>Talk</em></h1>
+  <p>Whether you have a question, an idea to share, or simply want to say hello — reach out below and we'll get back to you as soon as we can.</p>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact-sec">
+  <div class="contact-shell">
+
+    <!-- Info panel -->
+    <div class="contact-info">
+      <div class="contact-info-inner">
+        <h2>Reach us <em>directly</em></h2>
+        <p class="lead">Prefer to connect another way? Here's how to find us.</p>
+
+        <div class="ci-row">
+          <span class="ci-icon">✉</span>
+          <div>
+            <div class="ci-label">Email</div>
+            <div class="ci-value"><a href="mailto:hello@ladiesletstalk.com">hello@ladiesletstalk.com</a></div>
+          </div>
+        </div>
+        <div class="ci-row">
+          <span class="ci-icon">☎</span>
+          <div>
+            <div class="ci-label">Phone</div>
+            <div class="ci-value"><a href="tel:+353000000000">+353 00 000 0000</a></div>
+          </div>
+        </div>
+        <div class="ci-row">
+          <span class="ci-icon">⚲</span>
+          <div>
+            <div class="ci-label">Based in</div>
+            <div class="ci-value">Dublin, Ireland</div>
+          </div>
+        </div>
+
+        <div class="ci-social">
+          <span title="Instagram">◎</span>
+          <span title="Facebook">f</span>
+          <span title="TikTok">♪</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form card -->
+    <div class="contact-form-wrap">
+      <div class="form-title">Send a message</div>
+      <p class="form-note">We usually reply within a day or two.</p>
+      <form class="contact-form" id="contactForm">
+        <!-- Web3Forms access key: replace with YOUR key from web3forms.com -->
+        <input type="hidden" name="access_key" value="YOUR-ACCESS-KEY-HERE">
+        <input type="hidden" name="subject" value="New message from Ladies Let's Talk website">
+        <input type="hidden" name="from_name" value="Ladies Let's Talk Contact Form">
+        <!-- Honeypot spam filter -->
+        <input type="checkbox" name="botcheck" class="honeypot" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="field">
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="field">
+          <label for="cf-email">Email</label>
+          <input type="email" id="cf-email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="field">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" placeholder="How can we help?" required></textarea>
+        </div>
+        <button type="submit" class="btn-pink">Send Message</button>
+        <div class="form-status" id="formStatus"></div>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">
+    <img src="images/Logo.jpeg" alt="Ladies Let's Talk Collective logo">
+  </div>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="events.html">Upcoming Events</a></li>
+    <li><a href="journal.html">Well Being Journal</a></li>
+    <li><a href="symptom.html">Symptom Checker</a></li>
+    <li><a href="professionals.html">Professionals</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-social">
+    <span title="Instagram">◎</span>
+    <span title="Facebook">f</span>
+    <span title="TikTok">♪</span>
+  </div>
+  <div class="footer-copy">© 2026 Ladies Let's Talk Collective</div>
+</footer>
+
+<!-- ── CONTACT FORM SUBMISSION (Web3Forms) ── -->
+<script>
+(function () {
+  var form = document.getElementById('contactForm');
+  var status = document.getElementById('formStatus');
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    status.className = 'form-status sending';
+    status.textContent = 'Sending…';
+
+    var data = new FormData(form);
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: data
+    })
+    .then(function (res) { return res.json(); })
+    .then(function (json) {
+      if (json.success) {
+        status.className = 'form-status success';
+        status.textContent = 'Thank you! Your message has been sent.';
+        form.reset();
+      } else {
+        status.className = 'form-status error';
+        status.textContent = json.message || 'Something went wrong. Please try again.';
+      }
+    })
+    .catch(function () {
+      status.className = 'form-status error';
+      status.textContent = 'Network error. Please try again later.';
+    });
+  });
+})();
+</script>
+
+<script src="js/script.js"></script>
+</body>
+</html>

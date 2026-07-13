@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Events 2026</title>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Cormorant+Garamond:wght@400;500;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="mobile-nav" id="mobileNav">
+    <div class="mobile-header">
+        <img
+            class="logo-img"
+            src="images/Logo.jpeg"
+            alt="Logo">
+<br><br><br>
+        <button
+            class="mobile-close"
+            onclick="closeMobile()">
+            ✕
+        </button>
+    </div>
+    <a href="index.html">Home</a>
+    <a href="events.html">Upcoming Events</a>
+    <a href="journal.html">Well Being Journal</a>
+    <a href="symptom.html">Symptom Checker</a>
+    <a href="professionals.html">Professionals</a>
+    <a href="contact.html">Contact</a>
+</div>
+<nav>
+  <div class="logo-wrap">
+    <img class="logo-img" src="images/Logo.jpeg" alt="Ladies Let's Talk Collective logo">
+  </div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html">Upcoming Events</a></li>
+      <li class="has-dropdown">
+        <a href="#" onclick="return false;">Services <span class="caret">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="journal.html">Well being Journal</a></li>
+          <li><a href="symptom.html">Symptom Checker</a></li>
+          <li><a href="workplace.html">Workplace Talks</a></li>
+        </ul>
+      </li>
+      <li><a href="professionals.html">Professionals</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" onclick="openMobile()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- EVENTS 2026 -->
+<section class="events" id="events">
+  <h2 class="section-label"><em>Ladies Let's Talk</em><br>Event 2026</h2>
+  <p class="section-sub">A live event where women come together — to talk, to learn, and to feel less alone on this journey.</p>
+
+  <div class="event-grid">
+
+    <div class="event-img-slot" id="eSlot1">
+       <video controls playsinline
+             style="width:100%; height:100%; object-fit:cover; border-radius:inherit; display:block;">
+        <source src="images/reel2.mp4" type="video/mp4">
+        Sorry, your browser can't play this video.
+      </video>
+    </div>
+    <div class="event-img-slot" id="eSlot2">
+      <video controls playsinline
+             style="width:100%; height:100%; object-fit:cover; border-radius:inherit; display:block;">
+        <source src="images/reel1.mp4" type="video/mp4">
+        Sorry, your browser can't play this video.
+      </video>
+    </div>
+
+    <div class="event-img-slot" id="eSlot3">
+      <video controls playsinline
+             style="width:100%; height:100%; object-fit:cover; border-radius:inherit; display:block;">
+        <source src="images/reel3.mp4" type="video/mp4">
+        Sorry, your browser can't play this video.
+      </video>
+    </div>
+  </div>
+
+  <div class="event-cta-box">
+    <h3>Tickets Now Available on Eventbrite</h3>
+    <p>Secure your place at the Ladies Let's Talk Event 2026 — an evening of honest conversation, expert insights, and community for women navigating perimenopause and menopause.</p>
+    <a href="https://www.eventbrite.ie/e/ladies-lets-talk-tickets-1985060828374" target="_blank" class="btn-event">Get Your Tickets &#8594;</a>
+  </div>
+</section>
+
+<footer>
+<ul class="footer-links">
+<li>
+<a href="index.html">
+Home
+</a>
+</li>
+<li>
+<a href="events.html">
+Upcoming Events
+</a>
+</li>
+<li>
+<a href="symptom.html">
+Symptom Checker
+</a>
+</li>
+<li>
+<a href="contact.html">
+Contact
+</a>
+</li>
+</ul>
+<div class="footer-copy">
+© 2026 Ladies Let's Talk Collective
+</div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
