@@ -327,11 +327,11 @@
   <!-- ══════════════════════════════════════
        MOBILE NAV
   ══════════════════════════════════════ -->
-  <div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav" id="mobileNav" onclick="closeMobile()">
+  <div class="mobile-nav-panel" onclick="event.stopPropagation()">
     <div class="mobile-header">
-        <img class="logo-img" src="images/Logo.jpeg" alt="Logo">
-        <button class="mobile-close" onclick="closeMobile()">✕</button>
-		 <br><br><br><br><br><br><br>
+      <img class="logo-img" src="images/Logo.jpeg" alt="Logo">
+      <button class="mobile-close" onclick="closeMobile()">✕</button>
     </div>
     <a href="index.html">Home</a>
     <a href="events.html">Upcoming Events</a>
@@ -340,8 +340,8 @@
     <a href="workplace.html">Workplace Talks</a>
     <a href="professionals.html">Professionals</a>
     <a href="contact.html">Contact</a>
+  </div>
 </div>
-
 <nav>
   <div class="logo-wrap">
     <img class="logo-img" src="images/Logo.jpeg" alt="Ladies Let's Talk Collective logo">
