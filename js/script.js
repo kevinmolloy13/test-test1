@@ -77,3 +77,50 @@ if (quote) {
     updateAffirmation();
   }, 7000);
 }
+/* ── CONTACT FORM SUBMISSION ──
+   Add this to js/script.js, or link it separately with:
+   <script src="contact-form.js"></script>
+   just before the closing </body> tag on contact.html.
+
+   Requires a <form id="contactForm"> with fields named
+   "name", "email", "message", and a hidden "honeypot" field,
+   plus a <div id="formStatus"> for status messages. */
+
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const status = document.getElementById('formStatus');
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    status.className = 'form-status sending';
+    status.textContent = 'Sending...';
+    if (submitBtn) submitBtn.disabled = true;
+
+    fetch('send-form.php', {
+      method: 'POST',
+      body: new FormData(form)
+    })
+      .then(function (res) { return res.text(); })
+      .then(function (result) {
+        if (result.trim() === 'success') {
+          status.className = 'form-status success';
+          status.textContent = 'Thank you! Your message has been sent.';
+          form.reset();
+        } else {
+          status.className = 'form-status error';
+          status.textContent = 'Something went wrong. Please try again or email us directly.';
+        }
+      })
+      .catch(function () {
+        status.className = 'form-status error';
+        status.textContent = 'Something went wrong. Please try again or email us directly.';
+      })
+      .finally(function () {
+        if (submitBtn) submitBtn.disabled = false;
+      });
+  });
+});
