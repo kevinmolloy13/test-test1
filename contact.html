@@ -111,8 +111,12 @@
 .contact-form .honeypot{display:none;}
 .contact-form .btn-pink{
   width:100%;padding:15px;font-size:14px;letter-spacing:1px;font-weight:700;
-  border-radius:4px;
+  border-radius:4px;border:none;cursor:pointer;
+  background:var(--pink);color:#fff;
+  transition:background 0.2s,opacity 0.2s;
 }
+.contact-form .btn-pink:hover{background:var(--pink-dark);}
+.contact-form .btn-pink:disabled{opacity:0.6;cursor:default;}
 .form-status{margin-top:18px;font-size:14px;text-align:center;min-height:20px;}
 .form-status.success{color:#2e7d4f;}
 .form-status.error{color:#b03a3a;}
@@ -132,7 +136,7 @@
 <body>
 
 <!-- ── MOBILE NAV ── -->
-<<div class="mobile-nav" id="mobileNav" onclick="closeMobile()">
+<div class="mobile-nav" id="mobileNav" onclick="closeMobile()">
   <div class="mobile-nav-panel" onclick="event.stopPropagation()">
     <div class="mobile-header">
       <img class="logo-img" src="images/Logo.jpeg" alt="Logo">
@@ -173,77 +177,79 @@
   </div>
 </nav>
 
+
 <!-- ── CONTACT HERO ── -->
 <section class="contact-hero">
-  <div class="eyebrow">We'd love to hear from you</div>
-  <h1>Let's <em>Talk</em></h1>
-  <p>Whether you have a question, an idea to share, or simply want to say hello — reach out below and we'll get back to you as soon as we can.</p>
+  <div class="eyebrow">Get In Touch</div>
+  <h1>Let's Start a <em>Conversation</em></h1>
+  <p>Whether you have a question, want to share your story, or just need someone to talk to — I'd love to hear from you.</p>
 </section>
 
-<!-- ── CONTACT ── -->
+
+<!-- ── CONTACT MAIN ── -->
 <section class="contact-sec">
   <div class="contact-shell">
 
-    <!-- Info panel -->
+    <!-- Left: info panel -->
     <div class="contact-info">
       <div class="contact-info-inner">
-        <h2>Reach us <em>directly</em></h2>
-        <p class="lead">Prefer to connect another way? Here's how to find us.</p>
+        <h2>Reach <em>Out</em></h2>
+        <p class="lead">I try to respond to every message personally. Your privacy and comfort matter to me, so please share only what feels right for you.</p>
 
         <div class="ci-row">
-          <span class="ci-icon">✉</span>
+          <div class="ci-icon">&#9993;</div>
           <div>
             <div class="ci-label">Email</div>
-            <div class="ci-value"><a href="mailto:hello@ladiesletstalk.com">hello@ladiesletstalk.com</a></div>
+            <div class="ci-value"><a href="mailto:hello@ladieslettalk.ie">hello@ladieslettalk.ie</a></div>
           </div>
         </div>
+
         <div class="ci-row">
-          <span class="ci-icon">☎</span>
+          <div class="ci-icon">&#128222;</div>
           <div>
             <div class="ci-label">Phone</div>
             <div class="ci-value"><a href="tel:+353000000000">+353 00 000 0000</a></div>
           </div>
         </div>
+
         <div class="ci-row">
-          <span class="ci-icon">⚲</span>
+          <div class="ci-icon">&#128205;</div>
           <div>
-            <div class="ci-label">Based in</div>
-            <div class="ci-value">Dublin, Ireland</div>
+            <div class="ci-label">Location</div>
+            <div class="ci-value">Ireland</div>
           </div>
         </div>
 
         <div class="ci-social">
-          <span title="Instagram">◎</span>
-          <span title="Facebook">f</span>
-          <span title="TikTok">♪</span>
+          <span>f</span>
+          <span>in</span>
+          <span>@</span>
         </div>
       </div>
     </div>
 
-    <!-- Form card -->
+    <!-- Right: form -->
     <div class="contact-form-wrap">
-      <div class="form-title">Send a message</div>
-      <p class="form-note">We usually reply within a day or two.</p>
-      <form class="contact-form" id="contactForm">
-        <!-- Web3Forms access key: replace with YOUR key from web3forms.com -->
-        <input type="hidden" name="access_key" value="YOUR-ACCESS-KEY-HERE">
-        <input type="hidden" name="subject" value="New message from Ladies Let's Talk website">
-        <input type="hidden" name="from_name" value="Ladies Let's Talk Contact Form">
-        <!-- Honeypot spam filter -->
-        <input type="checkbox" name="botcheck" class="honeypot" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="form-title">Send a Message</div>
+      <p class="form-note">Fields marked are required. I'll get back to you as soon as I can.</p>
 
+      <form class="contact-form" id="contactForm">
         <div class="field">
-          <label for="cf-name">Name</label>
-          <input type="text" id="cf-name" name="name" placeholder="Your name" required>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your name">
         </div>
         <div class="field">
-          <label for="cf-email">Email</label>
-          <input type="email" id="cf-email" name="email" placeholder="you@example.com" required>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="you@example.com">
         </div>
         <div class="field">
-          <label for="cf-message">Message</label>
-          <textarea id="cf-message" name="message" placeholder="How can we help?" required></textarea>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required placeholder="How can I help?"></textarea>
         </div>
+
+        <!-- Honeypot spam trap — kept hidden from real visitors via CSS -->
+        <input type="text" name="honeypot" class="honeypot" tabindex="-1" autocomplete="off">
+
         <button type="submit" class="btn-pink">Send Message</button>
         <div class="form-status" id="formStatus"></div>
       </form>
@@ -252,10 +258,11 @@
   </div>
 </section>
 
+
 <!-- ── FOOTER ── -->
 <footer>
   <div class="footer-logo">
-    <img src="images/Logo.jpeg" alt="Ladies Let's Talk Collective logo">
+    <img src="images/Logo.jpeg" alt="Ladies Let's Talk Collective">
   </div>
   <ul class="footer-links">
     <li><a href="index.html">Home</a></li>
@@ -265,51 +272,10 @@
     <li><a href="professionals.html">Professionals</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <div class="footer-social">
-    <span title="Instagram">◎</span>
-    <span title="Facebook">f</span>
-    <span title="TikTok">♪</span>
-  </div>
-  <div class="footer-copy">© 2026 Ladies Let's Talk Collective</div>
+  <div class="footer-copy">&copy; 2026 Ladies Let's Talk Collective</div>
 </footer>
 
-<!-- ── CONTACT FORM SUBMISSION (Web3Forms) ── -->
-<script>
-(function () {
-  var form = document.getElementById('contactForm');
-  var status = document.getElementById('formStatus');
-  if (!form) return;
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    status.className = 'form-status sending';
-    status.textContent = 'Sending…';
-
-    var data = new FormData(form);
-
-    fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      body: data
-    })
-    .then(function (res) { return res.json(); })
-    .then(function (json) {
-      if (json.success) {
-        status.className = 'form-status success';
-        status.textContent = 'Thank you! Your message has been sent.';
-        form.reset();
-      } else {
-        status.className = 'form-status error';
-        status.textContent = json.message || 'Something went wrong. Please try again.';
-      }
-    })
-    .catch(function () {
-      status.className = 'form-status error';
-      status.textContent = 'Network error. Please try again later.';
-    });
-  });
-})();
-</script>
-
 <script src="js/script.js"></script>
+
 </body>
 </html>
