@@ -81,7 +81,82 @@
   transition:background 0.25s,transform 0.25s;
 }
 .ci-social span:hover{background:rgba(192,132,150,0.2);transform:translateY(-3px);}
+/* Instagram Section */
+.ci-social{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:14px;
+  margin-top:34px;
+  padding-top:26px;
+  border-top:1px solid rgba(192,132,150,0.2);
+}
 
+.ci-social-text{
+  margin:0;
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;
+  font-weight:600;
+  color:#f0e4e8;
+  letter-spacing:.4px;
+}
+
+.ci-instagram{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  max-width:100%;
+  padding:12px 20px;
+  background:rgba(192,132,150,0.15);
+  border:1px solid rgba(192,132,150,0.35);
+  border-radius:50px;
+  text-decoration:none;
+  color:#f0e4e8;
+  transition:background .3s ease,border-color .3s ease,color .3s ease,transform .3s ease,box-shadow .3s ease;
+}
+
+.ci-instagram svg{
+  width:22px;
+  height:22px;
+  flex-shrink:0;
+}
+
+.ci-instagram span{
+  width:auto;
+  height:auto;
+  border:0;
+  border-radius:0;
+  display:inline;
+  font-size:14px;
+  font-weight:600;
+  color:inherit;
+  letter-spacing:.3px;
+  cursor:inherit;
+}
+
+.ci-instagram:hover{
+  background:#c08496;
+  border-color:#c08496;
+  color:#fff;
+  transform:translateY(-3px);
+  box-shadow:0 8px 20px rgba(192,132,150,.3);
+}
+
+.ci-instagram:hover span{
+  background:transparent;
+  transform:none;
+}
+
+@media(max-width:900px){
+  .ci-social{
+    align-items:center;
+    text-align:center;
+  }
+
+  .ci-instagram{
+    justify-content:center;
+  }
+}
 /* Right: form card */
 .contact-form-wrap{background:#fff;padding:48px 44px;}
 .contact-form-wrap .form-title{
@@ -214,15 +289,22 @@
 </div>
 
 <div class="ci-social">
-  <p class="ci-social-text">Follow our journey on Instagram</p>
+    <p class="ci-social-text">Follow our journey on Instagram</p>
 
-  <a href="https://www.instagram.com/ladieslets_talk_collective/?hl=en/" target="_blank" rel="noopener noreferrer" class="ci-instagram">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M7.75 2C4.57 2 2 4.57 2 7.75v8.5C2 19.43 4.57 22 7.75 22h8.5C19.43 22 22 19.43 22 16.25v-8.5C22 4.57 19.43 2 16.25 2h-8.5zm0 2h8.5A3.75 3.75 0 0 1 20 7.75v8.5A3.75 3.75 0 0 1 16.25 20h-8.5A3.75 3.75 0 0 1 4 16.25v-8.5A3.75 3.75 0 0 1 7.75 4zm9.25 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
-    </svg>
-    <span>@yourusername</span>
-  </a>
+    <a href="https://www.instagram.com/ladieslets_talk_collective/"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="ci-instagram">
+
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M7.75 2C4.57 2 2 4.57 2 7.75v8.5C2 19.43 4.57 22 7.75 22h8.5C19.43 22 22 19.43 22 16.25v-8.5C22 4.57 19.43 2 16.25 2h-8.5zm0 2h8.5A3.75 3.75 0 0 1 20 7.75v8.5A3.75 3.75 0 0 1 16.25 20h-8.5A3.75 3.75 0 0 1 4 16.25v-8.5A3.75 3.75 0 0 1 7.75 4zm9.25 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
+        </svg>
+
+        <span>@ladieslets_talk_collective</span>
+    </a>
 </div>
+      </div>
+    </div>
 
     <!-- Right: form -->
     <div class="contact-form-wrap">
