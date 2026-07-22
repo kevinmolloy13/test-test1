@@ -382,38 +382,3 @@ transition:transform .3s;
 .footer-logo img:hover{
 transform:scale(1.05);
 }
-.ci-social {
-    margin-top: 20px;
-}
-
-.ci-social-text {
-    font-size: 15px;
-    color: #666;
-    margin-bottom: 10px;
-    font-weight: 500;
-}
-
-.ci-instagram {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 18px;
-    background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.ci-instagram:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(221, 42, 123, 0.35);
-    color: #fff;
-}
-
-.ci-instagram svg {
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-}
