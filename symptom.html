@@ -257,9 +257,33 @@
 
 <script>
 async function imageToDataUrl(imagePath) {
+  const visibleLogo =
+    document.querySelector('nav img.logo-img') ||
+    document.querySelector('.logo-wrap img') ||
+    document.querySelector('img[src*="Logo"]');
+
+  if (visibleLogo && visibleLogo.complete && visibleLogo.naturalWidth > 0) {
+    try {
+      const canvas = document.createElement("canvas");
+      canvas.width = visibleLogo.naturalWidth;
+      canvas.height = visibleLogo.naturalHeight;
+
+      const context = canvas.getContext("2d");
+      context.drawImage(visibleLogo, 0, 0);
+
+      return canvas.toDataURL("image/jpeg", 0.95);
+    } catch (error) {
+      console.warn("Could not copy the visible logo:", error);
+    }
+  }
+
   try {
-    const response = await fetch(imagePath);
-    if (!response.ok) throw new Error("Logo could not be loaded");
+    const absoluteLogoUrl = new URL(imagePath, window.location.href).href;
+    const response = await fetch(absoluteLogoUrl, { cache: "no-store" });
+
+    if (!response.ok) {
+      throw new Error("Logo could not be loaded");
+    }
 
     const blob = await response.blob();
 
@@ -270,7 +294,7 @@ async function imageToDataUrl(imagePath) {
       reader.readAsDataURL(blob);
     });
   } catch (error) {
-    console.warn(error);
+    console.warn("Logo could not be embedded:", error);
     return "";
   }
 }
@@ -286,9 +310,10 @@ async function downloadSymptomChecker() {
   const logoData = await imageToDataUrl("images/Logo.jpeg");
   const checkerCopy = checker.cloneNode(true);
 
-  const logoHtml = logoData
-    ? `<img src="${logoData}" alt="Ladies Let's Talk Collective logo">`
-    : "";
+  const fallbackLogoUrl = new URL("images/Logo.jpeg", window.location.href).href;
+
+  const logoHtml = `<img src="${logoData || fallbackLogoUrl}"
+    alt="Ladies Let's Talk Collective logo">`;
 
   const downloadedFile = `<!DOCTYPE html>
 <html lang="en">
