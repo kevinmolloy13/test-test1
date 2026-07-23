@@ -286,6 +286,447 @@ section.pros:last-of-type {
   text-align: center;
 }
 
+
+/* ── REDESIGNED FOOTER ── */
+.site-footer {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  gap: 0;
+  align-items: initial;
+  background:
+    radial-gradient(circle at 8% 15%, rgba(224,184,200,.11), transparent 24%),
+    linear-gradient(145deg, #25191e 0%, #3b2530 100%);
+  color: rgba(255,255,255,.82);
+}
+
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: -90px;
+  right: -80px;
+  width: 280px;
+  height: 280px;
+  border: 1px solid rgba(224,184,200,.08);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.footer-main {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.35fr .75fr .75fr 1.15fr;
+  gap: 46px;
+  width: min(1180px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 70px 0 56px;
+}
+
+.footer-brand-logo {
+  display: block;
+  width: 158px;
+  height: 158px;
+  object-fit: contain;
+  border-radius: 50%;
+  filter: drop-shadow(0 12px 25px rgba(0,0,0,.25));
+  transition: transform .25s ease;
+}
+
+.footer-logo-link {
+  display: inline-block;
+}
+
+.footer-logo-link:hover .footer-brand-logo {
+  transform: translateY(-3px) scale(1.02);
+}
+
+.footer-tagline {
+  max-width: 310px;
+  margin: 22px 0;
+  color: rgba(255,255,255,.67);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.footer-social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  border: 1px solid rgba(224,184,200,.28);
+  border-radius: 999px;
+  background: rgba(255,255,255,.055);
+  color: #f3dce5;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .2px;
+  text-decoration: none;
+  transition: background .2s, border-color .2s, transform .2s;
+}
+
+.footer-social-btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(224,184,200,.55);
+  background: rgba(224,184,200,.13);
+}
+
+.footer-social-btn svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+
+.footer-column,
+.footer-contact {
+  padding-top: 22px;
+}
+
+.footer-column h3,
+.footer-contact h3 {
+  margin: 0 0 19px;
+  color: #fff;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 23px;
+  font-weight: 600;
+}
+
+.footer-small-title {
+  display: block;
+  margin-bottom: 7px;
+  color: #dca9ba;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-nav a {
+  width: fit-content;
+  color: rgba(255,255,255,.62);
+  font-size: 13px;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: color .2s, transform .2s;
+}
+
+.footer-nav a:hover {
+  color: #f0bfd0;
+  transform: translateX(4px);
+}
+
+.footer-contact p {
+  max-width: 280px;
+  margin: 0 0 19px;
+  color: rgba(255,255,255,.63);
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+
+.footer-email-link {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 18px;
+  color: #f3dce5;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.footer-email-link:hover {
+  color: #ffffff;
+}
+
+.footer-email-icon {
+  display: grid;
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(224,184,200,.13);
+}
+
+.footer-email-icon svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+}
+
+.footer-contact-btn {
+  display: inline-block;
+  padding: 11px 22px;
+  border-radius: 3px;
+  background: #c08496;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .7px;
+  text-decoration: none;
+  transition: background .2s, transform .2s;
+}
+
+.footer-contact-btn:hover {
+  transform: translateY(-2px);
+  background: #a9687c;
+}
+
+.footer-bottom {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  width: min(1180px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 22px 0 28px;
+  border-top: 1px solid rgba(255,255,255,.09);
+}
+
+.footer-bottom p {
+  color: rgba(255,255,255,.35);
+  font-size: 11.5px;
+}
+
+
+@media (max-width: 980px) {
+  .footer-main {
+    grid-template-columns: 1.2fr 1fr 1fr;
+  }
+
+  .footer-contact {
+    grid-column: 1 / -1;
+    padding-top: 4px;
+  }
+}
+
+@media (max-width: 700px) {
+  .footer-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 34px 24px;
+    width: min(100% - 40px, 560px);
+    padding: 52px 0 42px;
+  }
+
+  .footer-brand,
+  .footer-contact {
+    grid-column: 1 / -1;
+  }
+
+  .footer-brand {
+    text-align: center;
+  }
+
+  .footer-logo-link {
+    margin: 0 auto;
+  }
+
+  .footer-brand-logo {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto;
+  }
+
+  .footer-tagline {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .footer-social-links {
+    justify-content: center;
+  }
+
+  .footer-contact {
+    padding: 26px 22px;
+    border: 1px solid rgba(224,184,200,.15);
+    border-radius: 10px;
+    background: rgba(255,255,255,.045);
+    text-align: center;
+  }
+
+  .footer-contact p {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .footer-email-link {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    width: min(100% - 40px, 560px);
+    text-align: center;
+  }
+}
+
+@media (max-width: 430px) {
+  .footer-main {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-column {
+    padding-top: 0;
+    text-align: center;
+  }
+
+  .footer-nav {
+    align-items: center;
+  }
+}
+
+
+/* ── FOOTER COMPATIBILITY FIXES ── */
+
+/* Prevent the site's global nav rule from affecting footer link groups. */
+.site-footer .footer-nav {
+  position: static;
+  display: flex;
+  width: auto;
+  height: auto;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+  z-index: auto;
+}
+
+/* Clip Logofooter.png into a true circle, hiding its square/checkerboard edge. */
+.site-footer .footer-logo-link {
+  display: block;
+  width: 166px;
+  height: 166px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 14px 30px rgba(0,0,0,.24);
+}
+
+.site-footer .footer-brand-logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  filter: none;
+  transform: scale(1.015);
+}
+
+/* Keep headings and links aligned cleanly. */
+.site-footer .footer-column {
+  min-width: 0;
+}
+
+.site-footer .footer-column h3 {
+  margin-bottom: 18px;
+}
+
+.site-footer .footer-nav a {
+  display: inline-block;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  white-space: normal;
+}
+
+/* Make the desktop columns more balanced. */
+.site-footer .footer-main {
+  grid-template-columns: minmax(250px, 1.35fr) minmax(140px, .72fr) minmax(140px, .72fr) minmax(260px, 1.15fr);
+  align-items: start;
+}
+
+/* Mobile/tablet layout. */
+@media (max-width: 980px) {
+  .site-footer .footer-main {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .site-footer .footer-brand,
+  .site-footer .footer-contact {
+    grid-column: 1 / -1;
+  }
+
+  .site-footer .footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .site-footer .footer-column {
+    text-align: center;
+  }
+
+  .site-footer .footer-nav {
+    align-items: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-footer .footer-main {
+    grid-template-columns: 1fr;
+    width: min(100% - 32px, 460px);
+    gap: 30px;
+    padding-top: 46px;
+  }
+
+  .site-footer .footer-brand,
+  .site-footer .footer-contact,
+  .site-footer .footer-column {
+    grid-column: 1;
+  }
+
+  .site-footer .footer-logo-link {
+    width: 142px;
+    height: 142px;
+  }
+
+  .site-footer .footer-column {
+    padding-top: 0;
+  }
+
+  .site-footer .footer-contact {
+    padding: 26px 18px;
+  }
+
+  .site-footer .footer-email-link {
+    flex-wrap: wrap;
+    overflow-wrap: anywhere;
+  }
+
+  .site-footer .footer-bottom {
+    width: min(100% - 32px, 460px);
+  }
+}
+
 </style>
 </head>
 <body class="workplace-page">
@@ -405,12 +846,47 @@ section.pros:last-of-type {
   <div class="about-text">
     <h2>Lived experience, backed by <em>professional expertise</em></h2>
     <p>Jen is there to speak openly about her own experience and to help make the conversation feel human, relatable and accessible.</p>
-    <p>Qualified professionals are brought into the session based on the areas your organisation would like to cover. This could include menopause, mental health, nutrition, workplace wellbeing or other relevant women's health topics.</p>
+    <p>Qualified professionals are brought into the session based on the areas your organisation would like to cover. This could include menopause, mental health, nutrition, pelvic health, workplace wellbeing or other relevant women's health topics.</p>
     <p>The number of professionals involved will depend on the size, format and scope of the event, so every workplace receives a session designed around its own needs.</p>
   </div>
 </section>
 
+<!-- ── FORMATS ── -->
+<section class="convos">
+  <div class="section-label">Ways to <em>work together</em></div>
+  <p class="section-sub">Choose a format, speaker mix and range of topics that suit your organisation.</p>
+  <div class="wp-grid">
+    <div class="wp-card">
+      <div class="wp-icon">▣</div>
+      <h3>Lunch &amp; Learn</h3>
+      <p>A relaxed 45–60 minute session led by Jen, with one or more professionals joining depending on the subjects your team wants to explore.</p>
+    </div>
+    <div class="wp-card">
+      <div class="wp-icon">◉</div>
+      <h3>Keynote Talk</h3>
+      <p>An engaging headline session combining Jen's personal story with professional knowledge for events, awareness days or wellbeing weeks.</p>
+    </div>
+    <div class="wp-card">
+      <div class="wp-icon">⬡</div>
+      <h3>Manager Workshop</h3>
+      <p>A focused, interactive session with relevant professional input, equipping leaders and HR teams to offer informed and confident support.</p>
+    </div>
+  </div>
+</section>
 
+<!-- ── WHO IT'S FOR ── -->
+<section class="pros">
+  <div class="section-label">Who it's <em>for</em></div>
+  <p class="section-sub">These sessions are designed for any organisation that wants a healthier, more open culture.</p>
+  <div class="wp-audience">
+    <span class="pill">Employers &amp; business owners</span>
+    <span class="pill">HR &amp; People teams</span>
+    <span class="pill">Wellbeing &amp; D&amp;I leads</span>
+    <span class="pill">Managers &amp; team leaders</span>
+    <span class="pill">Employee networks</span>
+    <span class="pill">Whole-team awareness days</span>
+  </div>
+</section>
 
 <!-- ── CTA ── -->
 <section class="wp-cta-sec">
@@ -422,25 +898,81 @@ section.pros:last-of-type {
 </section>
 
 <!-- ── FOOTER ── -->
-<footer>
-  <div class="footer-logo">
-    <img src="images/Logo.jpeg" alt="Ladies Let's Talk Collective logo">
+<footer class="site-footer">
+  <div class="footer-main">
+
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo-link" aria-label="Ladies Let's Talk Collective home">
+        <img src="images/Logofooter.png"
+             alt="Ladies Let's Talk Collective logo"
+             class="footer-brand-logo">
+      </a>
+
+      <p class="footer-tagline">
+        Honest conversations, lived experience and professional support for women’s health.
+      </p>
+
+      <div class="footer-social-links">
+        <a href="https://www.instagram.com/ladieslets_talk_collective/"
+           class="footer-social-btn"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Follow Ladies Let's Talk Collective on Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+            <circle cx="12" cy="12" r="4"></circle>
+            <circle cx="17.4" cy="6.7" r="1"></circle>
+          </svg>
+          <span>Follow on Instagram</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <h3>Quick Links</h3>
+      <div class="footer-nav" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="events.html">Upcoming Events</a>
+        <a href="journal.html">Well Being Journal</a>
+        <a href="symptom.html">Symptom Checker</a>
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <h3>Explore</h3>
+      <div class="footer-nav" aria-label="Footer service links">
+        <a href="workplace.html">Workplace Talks</a>
+        <a href="professionals.html">Professionals</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+
+    <div class="footer-contact">
+      <span class="footer-small-title">Let’s talk</span>
+      <h3>Get in touch</h3>
+      <p>
+        Have a question about an event, workplace talk or professional support?
+      </p>
+
+      <a href="mailto:ladiesletstalk03@gmail.com"
+         class="footer-email-link">
+        <span class="footer-email-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 6.5h18v11H3z"></path>
+            <path d="m4 7.5 8 6 8-6"></path>
+          </svg>
+        </span>
+        <span>ladiesletstalk03@gmail.com</span>
+      </a>
+
+      <a href="contact.html" class="footer-contact-btn">Contact Us</a>
+    </div>
+
   </div>
-  <ul class="footer-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="events.html">Upcoming Events</a></li>
-    <li><a href="journal.html">Well Being Journal</a></li>
-    <li><a href="workplace.html">Workplace</a></li>
-    <li><a href="symptom.html">Symptom Checker</a></li>
-    <li><a href="professionals.html">Professionals</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <div class="footer-social">
-    <span title="Instagram">◎</span>
-    <span title="Facebook">f</span>
-    <span title="TikTok">♪</span>
+
+  <div class="footer-bottom">
+    <p>© 2026 Ladies Let's Talk Collective. All rights reserved.</p>
   </div>
-  <div class="footer-copy">© 2026 Ladies Let's Talk Collective</div>
 </footer>
 
 <script src="js/script.js"></script>
