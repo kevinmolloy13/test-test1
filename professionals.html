@@ -525,6 +525,54 @@ Through RG Fitness, Roisin continues to inspire and support individuals on their
           <a href="https://www.instagram.com/kar_lashdolls/" target="_blank" class="pro-link">Instagram</a>
         </div>
       </div>
+	  
+	 <div class="pro-card">
+  <div class="pro-cat">Nutrition &amp; Menopause Support</div>
+
+  <h3>Norma Psillos — Empowered Health</h3>
+
+  <p>
+    Norma Psillos is a Registered Nutritional Therapist and Accredited
+    Menopause Educator, supporting women through perimenopause, menopause
+    and beyond. Using an evidence-based and compassionate approach, she
+    helps women understand the root causes of their symptoms through
+    personalised nutrition and lifestyle strategies.
+  </p>
+
+  <p>
+    Norma also supports women with PCOS, endometriosis, irregular or heavy
+    periods, and POI. She works one-to-one from her Limerick clinic, online
+    via Zoom, and delivers educational talks and workplace workshops,
+    empowering women to feel informed, confident and back in control of
+    their health.
+  </p>
+
+  <div class="pro-links">
+    <a
+      href="https://empoweredhealth.ie/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="pro-link"
+    >
+      Website
+    </a>
+  </div>
+</div>
+
+<div class="pro-card stay-tuned-card">
+  <div class="stay-tuned-content">
+    <div class="stay-tuned-icon" aria-hidden="true">＋</div>
+
+    <div class="pro-cat">More to come</div>
+
+    <h3>Stay Tuned</h3>
+
+    <p>
+      More trusted professionals, inspiring women and helpful resources
+      will be added soon.
+    </p>
+  </div>
+</div>
     </div>
 
     <div class="charity-note">
@@ -655,102 +703,387 @@ Through RG Fitness, Roisin continues to inspire and support individuals on their
 
   <script src="js/script.js"></script>
 
-  <script>
-    /* ════════════════════════════════════════════
-       YOUR VIDEOS — add YouTube URLs + names here.
-       The carousel builds itself automatically.
-    ════════════════════════════════════════════ */
-    const videos = [
-      { url: "https://www.youtube.com/watch?v=3gDfGqpbnxk", name: "Chatting to Sarah Breslin all things lymphatic drainage/ Colonic Treatment/ Exilis Treatment" },
-      { url: "https://youtu.be/NxWsuXakYsA?si=-NucGlhxHbCrquDD", name: "Chats with Roisin from RG Fitness" },
-      { url: "https://youtu.be/jO-OzV9Pv88?si=S9GEf9uJIV8T2bZW", name: "Pamela - Trichologist" },
-      { url: "https://youtu.be/JKaFvg6VOeg?si=VDmWdqDdTMRCKFqP", name: "Chats with Dr.Codruta" },
-      { url: "https://youtu.be/ydsYpVk0444?si=6nRZQfPovjZwjhat", name: "Laser Health Clinic" },
-	  { url: "https://youtu.be/zdAyFumQpUc?si=sONTReykdsYgQUTx", name: "Chats with Chill Jill" },
-	  	  { url: "https://youtu.be/WClIZwgzFWw?si=38ybGe1ctqTwePsQ", name: "Cabin Chats with Karen. Owner of Secretwarehouse & Lashdolls" },
-      // Add more: { url: "https://www.youtube.com/watch?v=XXXXX", name: "Name Here" },
-    ];
-    /* ════════════════════════════════════════════ */
+ <script>
+  /* ════════════════════════════════════════════
+     PROFESSIONAL VIDEO CAROUSEL
+  ════════════════════════════════════════════ */
 
-    const VISIBLE = 3;
-    let current = 0;
+  const videos = [
+    {
+      url: "https://www.youtube.com/watch?v=3gDfGqpbnxk",
+      name: "Sarah Breslin — Wellness Treatments",
+      description:
+        "I chat with Sarah Breslin about lymphatic drainage, colonic hydrotherapy and Exilis treatments, and how these treatments can support women’s overall health and wellbeing."
+    },
+    {
+      url: "https://youtu.be/NxWsuXakYsA?si=-NucGlhxHbCrquDD",
+      name: "Roisin Greene — Body Confidence and Fitness",
+      description:
+        "We chat about body confidence, self-acceptance and finding the confidence to start a fitness class, no matter where you are in life. We discuss how perimenopause and menopause can affect the way we see ourselves, and why movement should be about feeling stronger and healthier rather than striving for perfection."
+    },
+    {
+      url: "https://youtu.be/jO-OzV9Pv88?si=S9GEf9uJIV8T2bZW",
+      name: "Pamela Curran — Hair Loss and Hair Thinning",
+      description:
+        "I chat with Pamela about hair loss, why so many women notice changes in their hair during perimenopause and menopause, and why blood testing is important when experiencing hair loss or hair thinning. It is important to look at the bigger picture."
+    },
+    {
+      url: "https://youtu.be/JKaFvg6VOeg?si=VDmWdqDdTMRCKFqP",
+      name: "Dr. Codruța — What Is Normal?",
+      description:
+        "When you do not feel sick enough to visit your GP, but you are not feeling like yourself, what should you do? Dr. Codruța explains what may be considered normal and what is not normal when it comes to symptoms of perimenopause and menopause."
+    },
+    {
+      url: "https://youtu.be/ydsYpVk0444?si=6nRZQfPovjZwjhat",
+      name: "Laser Health Clinic — GIGA Laser Therapy",
+      description:
+        "I chat with Niamh about how GIGA laser therapy may support fertility and help with inflammation in the body."
+    },
+    {
+      url: "https://youtu.be/zdAyFumQpUc?si=sONTReykdsYgQUTx",
+      name: "Chill Jill — Talking to Your GP",
+      description:
+        "I chat with Laura and Jane about how to approach your GP regarding perimenopause. We discuss the importance of blood tests while also recognising that a diagnosis of perimenopause is largely based on symptoms."
+    },
+    {
+      url: "https://youtu.be/WClIZwgzFWw?si=38ybGe1ctqTwePsQ",
+      name: "Karen Grehan — Collaboration Over Competition",
+      description:
+        "I chat with Karen, founder of Lash Dolls Academy of Beauty and Secret Warehouse Dublin, about building a successful business from the ground up. We discuss why it is never too late to learn a new skill, begin a course or follow a new career path. Karen also shares her belief in collaboration over competition and encourages women to support and lift each other up as they grow in business."
+    }
+  ];
 
-    function ytId(url) {
-      const m = url.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/)|youtu\.be\/)([^&\n?#]+)/);
-      return m ? m[1] : null;
+  let current = 0;
+  let resizeTimer;
+
+  /*
+   * Returns a YouTube video ID from either a standard
+   * youtube.com URL or a shortened youtu.be URL.
+   */
+  function ytId(url) {
+    const match = url.match(
+      /(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([^&\n?#]+)/
+    );
+
+    return match ? match[1] : null;
+  }
+
+  /*
+   * Prepare the usable video information.
+   */
+  const vids = videos
+    .map((video) => ({
+      id: ytId(video.url),
+      name: video.name,
+      description: video.description
+    }))
+    .filter((video) => video.id);
+
+  /*
+   * The desktop carousel displays three cards.
+   * Mobile and tablet display one card at a time.
+   */
+  function getVisibleCards() {
+    return window.innerWidth <= 900 ? 1 : 3;
+  }
+
+  /*
+   * The furthest index the carousel can move to.
+   */
+  function getMaxSlide() {
+    return Math.max(0, vids.length - getVisibleCards());
+  }
+
+  /*
+   * Prevent inserted text from breaking the HTML.
+   */
+  function escapeHtml(value) {
+    return String(value)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
+  /*
+   * Create all carousel cards and navigation dots.
+   */
+  function render() {
+    const track = document.getElementById("carouselTrack");
+    const dots = document.getElementById("dotsContainer");
+    const previousButton = document.getElementById("prevBtn");
+    const nextButton = document.getElementById("nextBtn");
+
+    if (!track || !dots || !previousButton || !nextButton) {
+      return;
     }
 
-    const vids = videos.map(v => ({ id: ytId(v.url), name: v.name })).filter(v => v.id);
+    current = Math.min(current, getMaxSlide());
 
-    function render() {
-      const track = document.getElementById('carouselTrack');
-      const dots  = document.getElementById('dotsContainer');
+    track.innerHTML = vids
+      .map((video, index) => {
+        const safeName = escapeHtml(video.name);
+        const safeDescription = escapeHtml(video.description);
 
-      track.innerHTML = vids.map((v, i) => `
-        <div class="vc" onclick="openLightbox(${i})" role="button" tabindex="0" aria-label="Play video: ${v.name}">
-          <div class="vc-thumb">
-            <img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg" alt="${v.name}" loading="lazy">
-            <div class="vc-thumb-overlay"></div>
-            <div class="vc-play"><div class="vc-play-tri"></div></div>
-          </div>
-          <div class="vc-info">
-            <div class="vc-cat">Video Introduction</div>
-            <div class="vc-name">${v.name}</div>
-          </div>
-        </div>
-      `).join('');
+        return `
+          <article class="vc">
+            <div
+              class="vc-thumb"
+              role="button"
+              tabindex="0"
+              aria-label="Play video: ${safeName}"
+              onclick="openLightbox(${index})"
+              onkeydown="handleVideoKey(event, ${index})"
+            >
+              <img
+                src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg"
+                alt="${safeName}"
+                loading="lazy"
+              >
 
-      const numDots = Math.max(1, vids.length - VISIBLE + 1);
-      dots.innerHTML = Array.from({ length: numDots }, (_, i) =>
-        `<button class="cdot ${i === current ? 'active' : ''}" onclick="goTo(${i})" aria-label="Slide ${i + 1}"></button>`
-      ).join('');
+              <div class="vc-thumb-overlay"></div>
 
-      updateTrack();
-      document.getElementById('prevBtn').disabled = current === 0;
-      document.getElementById('nextBtn').disabled = current >= vids.length - VISIBLE;
+              <div class="vc-play" aria-hidden="true">
+                <div class="vc-play-tri"></div>
+              </div>
+            </div>
+
+            <div class="vc-info">
+              <div class="vc-cat">Cabin Chat</div>
+
+              <div
+                class="vc-name"
+                role="button"
+                tabindex="0"
+                aria-label="Play video: ${safeName}"
+                onclick="openLightbox(${index})"
+                onkeydown="handleVideoKey(event, ${index})"
+              >
+                ${safeName}
+              </div>
+
+              <div
+                class="vc-description"
+                id="description-${index}"
+              >
+                <div class="vc-description-text">
+                  ${safeDescription}
+                </div>
+
+                <button
+                  type="button"
+                  class="vc-see-more"
+                  aria-expanded="false"
+                  aria-controls="description-${index}"
+                  onclick="toggleDescription(event, ${index}, this)"
+                >
+                  See more
+                </button>
+              </div>
+            </div>
+          </article>
+        `;
+      })
+      .join("");
+
+    const numberOfDots = Math.max(1, getMaxSlide() + 1);
+
+    dots.innerHTML = Array.from(
+      { length: numberOfDots },
+      (_, index) => `
+        <button
+          type="button"
+          class="cdot ${index === current ? "active" : ""}"
+          onclick="goTo(${index})"
+          aria-label="Go to video ${index + 1}"
+          aria-current="${index === current ? "true" : "false"}"
+        ></button>
+      `
+    ).join("");
+
+    previousButton.disabled = current === 0;
+    nextButton.disabled = current >= getMaxSlide();
+
+    /*
+     * Wait for the browser to calculate the card width
+     * before moving the carousel.
+     */
+    requestAnimationFrame(updateTrack);
+  }
+
+  /*
+   * Move the carousel to the current card.
+   */
+  function updateTrack() {
+    const track = document.getElementById("carouselTrack");
+
+    if (!track) {
+      return;
     }
 
-    function updateTrack() {
-      const track = document.getElementById('carouselTrack');
-      const card  = track.querySelector('.vc');
-      if (!card) return;
-      const gap = 20;
-      track.style.transform = `translateX(-${current * (card.offsetWidth + gap)}px)`;
+    const card = track.querySelector(".vc");
+
+    if (!card) {
+      return;
     }
 
-    function slide(dir) {
-      current = Math.min(Math.max(0, current + dir), Math.max(0, vids.length - VISIBLE));
-      render();
-    }
+    const gap = 20;
+    const cardWidth = card.getBoundingClientRect().width;
+    const distance = current * (cardWidth + gap);
 
-    function goTo(i) { current = i; render(); }
+    track.style.transform = `translateX(-${distance}px)`;
+  }
 
-    /* Embedded playback: builds a YouTube "embed" URL (not "watch") and
-       drops it into an iframe inside the lightbox, so the video plays
-       right on this page instead of sending people to youtube.com. */
-    function openLightbox(i) {
-      const v = vids[i];
-      document.getElementById('lbFrame').src = `https://www.youtube.com/embed/${v.id}?autoplay=1&rel=0`;
-      document.getElementById('lbName').textContent = v.name;
-      document.getElementById('lightbox').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightboxDirect() {
-      document.getElementById('lightbox').classList.remove('open');
-      document.getElementById('lbFrame').src = ''; // stops playback
-      document.body.style.overflow = '';
-    }
-
-    function closeLightbox(e) {
-      if (e.target === document.getElementById('lightbox')) closeLightboxDirect();
-    }
-
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightboxDirect(); });
-    window.addEventListener('resize', updateTrack);
+  /*
+   * Move forwards or backwards.
+   */
+  function slide(direction) {
+    current = Math.min(
+      Math.max(0, current + direction),
+      getMaxSlide()
+    );
 
     render();
-  </script>
+  }
+
+  /*
+   * Move directly to a selected navigation dot.
+   */
+  function goTo(index) {
+    current = Math.min(
+      Math.max(0, index),
+      getMaxSlide()
+    );
+
+    render();
+  }
+
+  /*
+   * Expand or collapse an individual description.
+   */
+  function toggleDescription(event, index, button) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const description = document.getElementById(
+      `description-${index}`
+    );
+
+    if (!description) {
+      return;
+    }
+
+    const isExpanded =
+      description.classList.toggle("expanded");
+
+    button.textContent = isExpanded
+      ? "Show less"
+      : "See more";
+
+    button.setAttribute(
+      "aria-expanded",
+      String(isExpanded)
+    );
+
+    /*
+     * Recalculate the carousel position because
+     * the card height may have changed.
+     */
+    requestAnimationFrame(updateTrack);
+  }
+
+  /*
+   * Allow Enter or Space to open a video.
+   */
+  function handleVideoKey(event, index) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openLightbox(index);
+    }
+  }
+
+  /*
+   * Open and play the chosen video.
+   */
+  function openLightbox(index) {
+    const video = vids[index];
+    const frame = document.getElementById("lbFrame");
+    const name = document.getElementById("lbName");
+    const lightbox = document.getElementById("lightbox");
+
+    if (!video || !frame || !name || !lightbox) {
+      return;
+    }
+
+    frame.src =
+      `https://www.youtube.com/embed/${video.id}` +
+      "?autoplay=1&rel=0";
+
+    name.textContent = video.name;
+
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
+
+    document.body.style.overflow = "hidden";
+  }
+
+  /*
+   * Close the lightbox and stop the video.
+   */
+  function closeLightboxDirect() {
+    const lightbox = document.getElementById("lightbox");
+    const frame = document.getElementById("lbFrame");
+
+    if (!lightbox || !frame) {
+      return;
+    }
+
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+
+    frame.src = "";
+    document.body.style.overflow = "";
+  }
+
+  /*
+   * Close when the dark background is clicked.
+   */
+  function closeLightbox(event) {
+    const lightbox = document.getElementById("lightbox");
+
+    if (event.target === lightbox) {
+      closeLightboxDirect();
+    }
+  }
+
+  /*
+   * Close with the Escape key.
+   */
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeLightboxDirect();
+    }
+  });
+
+  /*
+   * Rebuild the carousel when changing between
+   * desktop and mobile layouts.
+   */
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+
+    resizeTimer = setTimeout(() => {
+      current = Math.min(current, getMaxSlide());
+      render();
+    }, 120);
+  });
+
+  /*
+   * Build the carousel once the page is ready.
+   */
+  render();
+</script>
 
 </body>
 </html>
